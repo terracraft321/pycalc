@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -31,13 +31,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install pytest
 
-      # Step 4: Find the test file and run pytest
+      # Step 4: Run the correct test file
       - name: Run PyCalc tests
-        run: |
-          FILE=$(find . -name "test_pycalc.py" | head -n 1)
-          if [ -z "$FILE" ]; then
-            echo "ERROR: test_pycalc.py not found!"
-            exit 1
-          fi
-          echo "Running tests in $FILE"
-          pytest "$FILE"
+        run: pytest test_laskin.py
