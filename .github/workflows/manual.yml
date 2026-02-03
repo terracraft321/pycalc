@@ -24,13 +24,20 @@ jobs:
         with:
           python-version: ${{ inputs.python-version }}
 
-      # Step 3: Install dependencies (if you have any)
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install pytest
 
-      # Step 4: Run the PyCalc tests
-      - name: Run test_pycalc.py
-        run: pytest test_pycalc.py
+      # Step 4: Find the test file and run pytest
+      - name: Run PyCalc tests
+        run: |
+          FILE=$(find . -name "test_pycalc.py" | head -n 1)
+          if [ -z "$FILE" ]; then
+            echo "ERROR: test_pycalc.py not found!"
+            exit 1
+          fi
+          echo "Running tests in $FILE"
+          pytest "$FILE"
