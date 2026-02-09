@@ -1,3 +1,5 @@
+import os
+
 def laskinsum(a, b):
     """Palauttaa a + b"""
     return a + b
@@ -18,4 +20,5 @@ def laskinjako(a, b):
 
 def laskinpotenssi(a, b):
     """Palauttaa a ** b"""
+
     return a ** b
