@@ -1,0 +1,18 @@
+# Tämä tiedosto sisältää tarkoituksella huonoa nimeämistä
+
+myVariable = 10
+AnotherVariable = 20
+totalSum = myVariable + AnotherVariable
+
+def CalculateTotal(valueOne, valueTwo):
+    resultValue = valueOne + valueTwo
+    return resultValue
+
+def good_function_name():
+    BadLocalVar = 5
+    anotherBadVarName = 6
+    return BadLocalVar + anotherBadVarName
+
+veryLongVariableNameThatExceedsFiftyCharactersLimit = 123
+
+TODO_MESSAGE = "Refaktoroi tämä myöhemmin"
