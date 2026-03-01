@@ -83,12 +83,14 @@ def test_laskinneliojuuri_negative():
 def test_laskinkuutionjuuri_positive():
     assert round(laskinkuutionjuuri(27), 5) == 3
 
-def laskinkuutionjuuri(a):
-    if a >= 0:
-        return a ** (1/3)
-    else:
-        return -((-a) ** (1/3))
+def test_laskinkuutionjuuri_positive():
+    tulos = round(laskinkuutionjuuri(27), 5)
+    assert tulos == 3
 
+def test_laskinkuutionjuuri_negative():
+    tulos = round(laskinkuutionjuuri(-27), 5)
+    assert tulos == -3
+    
 def test_laskinabsoluuttinen_positive():
     assert laskinabsoluuttinen(5) == 5
 
